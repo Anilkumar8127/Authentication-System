@@ -1,0 +1,17 @@
+<form [formGroup]="login" (ngSubmit)="authenticate()">
+
+    Username : <input type="email" formControlName="email"><br>
+    Password : <input type="password" formControlName="password"><br>
+    <input type="submit" value="submit"><br>
+</form>
+
+
+<button (click)="forgottenPassword()">Forgotten Password</button>
+
+<form [formGroup]="forgottenPasswordForm"
+    (ngSubmit)="sendMailOnForgottenPassword()"
+    *ngIf="forgottenPasswordEnabled">
+    EmailId: <input type="text" formControlName="email"> <br>
+    <input type="submit" value="Send A Link To Reset Password">
+
+</form>
